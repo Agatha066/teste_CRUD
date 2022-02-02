@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Teste - Index</title>
+		
+		<style>
+			.container {
+			 position: fixed;
+			 top: 50%;
+			 left: 50%;
+			 transform: translate(-50%, -50%);
+			 border: 1px solid black;
+			 text-align:center;
+			}
+			.img{
+				width: 25%;
+				height: 25%;
+				margin: 5px;
+			}
+			.divi{
+				background-color: #ccc;
+				color: black;
+				margin: 5px;
+				padding: 5px;
+				text-align: left;
+			}
+			.button1{
+				background-color: green;
+				color: white;
+				border: none;
+				text-align: center;
+				text-decoration: none;
+				padding: 10px 15px;
+				margin: 4px 2px;
+				float: right;
+			}
+			.button2{
+				background-color: pink;
+				color: white;
+				border: none;
+				text-align: center;
+				text-decoration: none;
+				padding: 10px 15px;
+				margin: 4px 2px;
+				float: right;
+			}
+			.button3{
+				background-color: red;
+				color: white;
+				border: none;
+				text-align: center;
+				cursor: pointer;
+				text-decoration: none;
+				padding: 10px 10px;
+				margin: 4px 0px;
+				width: 100%;
+			}
+			a{
+				text-decoration: none;
+			}
+		</style>
+		<script>
+			function mostrainfo()
+			{
+					let xmlhttp = new XMLHttpRequest(); //inicia o objeto
+					xmlhttp.onreadystatechange = function()//roda a funcao
+					{
+						if(this.readyState == 4 && this.status == 200)
+						{
+							console.log("retorno: " +  this.responseText);
+							document.getElementById("listar").value = this.responseText;
+							document.getElementById("listar").innerHTML = this.responseText;
+						}
+						console.log("ReadyState: " + this.readyState);
+					}
+					xmlhttp.open("GET", "http://localhost/teste/listar.php", true);
+					xmlhttp.send();
+			}
+			
+			function sair() {
+				location.href= "login.html";
+			}
+			function editar(id) {
+				location.href= "cadastro.html" + id;
+			}
+			function excluir(id) {
+				var resp = window.confirm("DESEJA DELETAR O USUÁRIO?");
+				
+				if(resp==true){
+					//envia id para excluir user
+					
+					//emite alerta
+					alert("USUÁRIO DELETADO COM SUCESSO!");
+				}
+				else{
+					alert("VOCÊ CLICOU EM 'CANCELAR'.");
+				}
+			}
+		</script>
+	</head>
+
+	<body onload="mostrainfo()">
+	
+		<div class="container">
+			<img src="imagem/user.png" class="img">
+			
+			<div class="divi" style="text-align:center;"><a href="login.html">Adicionar</a></div>
+		
+				<br><span id="listar"></span>
+			
+			<br><button  class="button3" onclick="sair()">SAIR DO SISTEMA</button>
+			
+		</div>
+	</body>
+
+</html>

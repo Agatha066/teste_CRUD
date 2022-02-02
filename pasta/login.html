@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Teste</title>
+		<link rel="stylesheet" href="style.css">
+		
+		<style>
+			.container {
+			 position: fixed;
+			 top: 50%;
+			 left: 50%;
+			 transform: translate(-50%, -50%);
+			 border: 1px solid black;
+			 margin: 10px;
+			 text-align:center;
+			}
+			img{
+				width: 25%;
+				height: 25%;
+				margin: 10px;
+				text-align: center;
+			}
+			.button1 {
+				background-color: blue;
+				color: white;
+				border: none;
+				text-align: center;
+				cursor: pointer;
+				text-decoration: none;
+				padding: 10px 15px;
+				margin: 4px 2px;
+				float: inline-start;
+			}
+			.button2 {
+				background-color: green;
+				color: white;
+				border: none;
+				text-align: center;
+				cursor: pointer;
+				text-decoration: none;
+				padding: 10px 15px;
+				margin: 4px 2px;
+				float: inline-start;
+			}
+			input {
+				cursor: pointer;
+				padding: 10px 15px;
+				margin: 4px 2px;
+				float: inline-start;
+			}
+		</style>
+		<script>
+			function entrar() {
+				//verificar primeiro se os dados sao validos
+				
+				//se for valido direciona para pagina php
+				location.href= "login.php";
+			}
+			function cadastrar() {
+				location.href= "cadastro.html";
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="container">
+			<img src="imagem/user.png"><br>
+			
+			<form method="get"> 
+				<input id="email" type="text" placeholder="E-mail de cadastro">
+				<input id="senha" type="password" placeholder="Senha de acesso">
+				
+				<br><button  class="button1" onclick="entrar()">ENTRAR NO SISTEMA</button>
+				<br><button class="button2" onclick="cadastrar()">CADASTRAR USUÁRIO</button>
+			</form>	
+		</div>
+	</body>
+
+</html>
